@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @tarefa.nome %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @tarefa.descricao %>
+</p>
+
+<p>
+  <strong>Finalizada:</strong>
+  <%= @tarefa.finalizada %>
+</p>
+
+<p>
+  <strong>Data de termino:</strong>
+  <%= @tarefa.data_de_termino %>
+</p>
+
+<p>
+  <strong>Prioridade:</strong>
+  <%= @tarefa.prioridade %>
+</p>
+
+<%= link_to 'Edit', edit_tarefa_path(@tarefa) %> |
+<%= link_to 'Back', tarefas_path %>

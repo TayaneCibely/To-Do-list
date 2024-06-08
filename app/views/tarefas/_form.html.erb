@@ -1,0 +1,47 @@
+<%= form_with(model: tarefa) do |form| %>
+  <% if tarefa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tarefa.errors.count, "error") %> prohibited this tarefa from being saved:</h2>
+
+      <ul>
+        <% tarefa.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :membro_id %>
+    <%= form.collection_select :membro_id, Membro.all, :id, :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :descricao %>
+    <%= form.text_field :descricao %>
+  </div>
+
+  <div class="field">
+    <%= form.label :finalizada %>
+    <%= form.check_box :finalizada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_de_termino %>
+    <%= form.datetime_select :data_de_termino %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prioridade %>
+    <%= form.text_field :prioridade %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

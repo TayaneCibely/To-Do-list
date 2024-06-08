@@ -1,6 +1,6 @@
 class Membro < ApplicationRecord
   has_many :tarefas
 
-  validates :email, presence: true, uniqueness: true
-  validates :nome, presence: true, length: { minimum: 5 }, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :nome, presence: true, length: { minimum: 5 }
+  validates :email, presence: true, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_06_08_004936) do
+ActiveRecord::Schema.define(version: 2024_06_08_005759) do
 
   create_table "membros", force: :cascade do |t|
     t.string "email"
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 2024_06_08_004936) do
     t.string "prioridade"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "membro_id", null: false
+    t.index ["membro_id"], name: "index_tarefas_on_membro_id"
   end
 
+  add_foreign_key "tarefas", "membros"
 end

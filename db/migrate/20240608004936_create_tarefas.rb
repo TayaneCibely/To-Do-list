@@ -3,7 +3,7 @@ class CreateTarefas < ActiveRecord::Migration[6.1]
     create_table :tarefas do |t|
       t.string :nome
       t.string :descricao
-      t.boolean :finalizada
+      t.boolean :finalizada, default: false, null: false
       t.datetime :data_de_termino
       t.string :prioridade
 

@@ -17,28 +17,23 @@
   </div>
 
   <div class="field">
-    <%= form.label :nome %>
+    <%= form.label :nome, "Nome da Tarefa: " %>
     <%= form.text_field :nome %>
   </div>
 
   <div class="field">
-    <%= form.label :descricao %>
+    <%= form.label :descricao, "Descrição: " %>
     <%= form.text_field :descricao %>
   </div>
 
   <div class="field">
-    <%= form.label :finalizada %>
-    <%= form.check_box :finalizada %>
+    <%= form.label :finalizada, "Tarefa Finalizada?" %>
+    <%= form.select :finalizada, [['Sim', true], ['Não', false]], { prompt: 'Selecione' }, class: 'form-control' %>
   </div>
 
   <div class="field">
-    <%= form.label :data_de_termino %>
-    <%= form.datetime_select :data_de_termino %>
-  </div>
-
-  <div class="field">
-    <%= form.label :prioridade %>
-    <%= form.text_field :prioridade %>
+    <%= form.label :prioridade, "Prioridade: " %>
+    <%= form.select :prioridade,['Baixa', 'Média', 'Alta'], include_blank: false %>
   </div>
 
   <div class="actions">

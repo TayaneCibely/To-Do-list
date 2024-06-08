@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nome %>
+    <%= form.label :nome, "Digite o nome:" %>
     <%= form.text_field :nome %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
+    <%= form.label :email, "Digite o Email:" %>
     <%= form.text_field :email %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Salvar Membro" %>
   </div>
 <% end %>

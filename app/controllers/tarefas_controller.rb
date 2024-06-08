@@ -17,37 +17,26 @@ class TarefasController < ApplicationController
 
   # GET /tarefas/1/edit
   def edit
-    @tarefa = Tarefa.find(params[:id])
-    if @tarefa = Tarefa.find(params[:id])
-      redirect_to @tarefa, alert: 'Tarefas finalizadas não podem ser editadas'
-    end
   end
 
   # POST /tarefas or /tarefas.json
   def create
     @tarefa = Tarefa.new(tarefa_params)
+    @tarefa.prioridade ||= 'Baixa'
 
-    respond_to do |format|
       if @tarefa.save
-        format.html { redirect_to tarefa_url(@tarefa), notice: "Tarefa was successfully created." }
-        format.json { render :show, status: :created, location: @tarefa }
+        redirect_to @tarefa, notice: "Tarefa criada com sucesso!"
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @tarefa.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /tarefas/1 or /tarefas/1.json
   def update
-    respond_to do |format|
-      if @tarefa.update(tarefa_params)
-        format.html { redirect_to tarefa_url(@tarefa), notice: "Tarefa was successfully updated." }
-        format.json { render :show, status: :ok, location: @tarefa }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tarefa.errors, status: :unprocessable_entity }
-      end
+    if @tarefa.update(tarefa_params.except(:data_de_termino))
+      redirect_to @tarefa, notice: 'Tarefa foi atualizada com sucesso.'
+    else
+      render :edit
     end
   end
 
@@ -71,4 +60,4 @@ class TarefasController < ApplicationController
     def tarefa_params
       params.require(:tarefa).permit(:nome, :descricao, :finalizada, :data_de_termino, :prioridade, :membro_id)
     end
-end
+ end

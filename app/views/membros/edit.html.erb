@@ -1,6 +1,8 @@
-<h1>Editing Membro</h1>
+<h1>Editar Membro</h1>
 
 <%= render 'form', membro: @membro %>
 
-<%= link_to 'Show', @membro %> |
-<%= link_to 'Back', membros_path %>
+<%= link_to 'Mostrar', @membro %> |
+<%= link_to 'Voltar', membros_path %> |
+<%= button_to 'Apagar', @membro, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar?' } %>
+

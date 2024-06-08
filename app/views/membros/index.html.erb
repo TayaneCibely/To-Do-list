@@ -16,9 +16,9 @@
       <tr>
         <td><%= membro.email %></td>
         <td><%= membro.nome %></td>
-        <td><%= link_to 'Show', membro %></td>
-        <td><%= link_to 'Edit', edit_membro_path(membro) %></td>
-        <td><%= link_to 'Destroy', membro, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar ', membro %></td>
+        <td><%= link_to 'Editar ', edit_membro_path(membro) %></td>
+        <td><%= link_to 'Apagar', membro, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Membro', new_membro_path %>
+<%= link_to 'Novo Membro', new_membro_path %>
